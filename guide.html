@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>上手指引 — 週編</title>
+    <meta
+      name="description"
+      content="週編的圖文上手指引：安裝、輸入序號、申請 Gemini 金鑰、匯入商品、排這一週、逐天檢查與發布。"
+    />
+    <meta property="og:title" content="上手指引 — 週編" />
+    <meta property="og:description" content="週編的圖文上手指引：安裝、輸入序號、申請 Gemini 金鑰、匯入商品、排這一週、逐天檢查與發布。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://weekedit.tw/assets/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link rel="canonical" href="https://weekedit.tw/guide.html" />
+    <meta property="og:url" content="https://weekedit.tw/guide.html" />
+    <meta property="og:site_name" content="週編" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/icon.png" />
+    <link rel="apple-touch-icon" href="assets/icon-180.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skiplink" href="#main">跳到主要內容</a>
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="index.html"><img class="brand-tile" src="assets/icon.png" alt="" width="30" height="30" />週編</a>
+        <nav class="navlinks" aria-label="主導覽">
+          <a href="index.html">回首頁</a>
+          <a href="guide.html" aria-current="page">上手指引</a>
+          <a href="changelog.html">更新紀錄</a>
+
+          <a href="terms.html">購買條款</a>
+          <a href="https://m.me/weekedit.tw">粉專私訊</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="doc" id="main">
+      <div class="narrow">
+        <p class="eyebrow">上手指引</p>
+        <h1>從安裝到發出第一篇，大約二十分鐘</h1>
+        <p class="lead">
+          整條路三步：<strong>拿序號 → 裝好、貼上金鑰 → 排出第一週</strong>，大約二十分鐘。照著做，卡住直接私訊粉專，把畫面截圖給我們就好。
+        </p>
+        <p style="margin:18px 0 0">
+          <a class="btn" data-goatcounter-click="cta-guide-top" href="https://m.me/weekedit.tw" target="_blank" rel="noopener">私訊拿試用序號（打「試用」就好）</a>
+        </p>
+
+        <div class="callout">
+          <p style="margin: 0">
+            <strong>第 0 步：先拿序號。</strong>軟體裝好之後要輸入序號才打得開，所以動手前先到<a
+              href="https://m.me/weekedit.tw"
+              target="_blank"
+              rel="noreferrer"
+              >粉專</a
+            >私訊「我要試用」，拿到序號再往下走。免費、一人一組。
+          </p>
+        </div>
+
+        <nav class="toc" id="toc" aria-label="目次">
+          <p>這份指引包含</p>
+          <ol>
+            <li><a href="#install">安裝軟體（Windows 會跳藍色警告，正常的）</a></li>
+            <li><a href="#activate">輸入序號啟用</a></li>
+            <li><a href="#key">接上 AI：申請並貼上 Gemini 金鑰</a></li>
+            <li><a href="#products">把商品搬進來</a></li>
+            <li><a href="#plan">排這一週</a></li>
+            <li><a href="#check">一天一天看過、改過</a></li>
+            <li><a href="#publish">發出去</a></li>
+            <li><a href="#advanced">進階設定（不設也能正常用）</a></li>
+            <li><a href="#trouble">卡住的話</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="install">1. 安裝軟體</h2>
+        <ol>
+          <li>
+            按這裡<a
+              href="https://github.com/addle1116/promo-helper-meta/releases/download/v2.5.0/weekedit-2.5.0-setup.exe"
+              >下載安裝檔</a
+            >（約 153 MB）。瀏覽器會問你要存到哪裡，存桌面最好找。
+          </li>
+          <li>下載完，對著那個 <code>.exe</code> 檔點兩下執行。</li>
+        </ol>
+
+        <div class="callout warn">
+          <p>
+            <strong>Windows 會跳出藍色的「Windows 已保護您的電腦」——這是正常的，不是病毒。</strong>
+          </p>
+          <p style="margin-bottom: 0">
+            小型軟體沒有向微軟購買年費簽章憑證都會這樣。點畫面上的「<strong>其他資訊</strong>」，再點下面出現的「<strong>仍要執行</strong>」就可以繼續安裝。
+          </p>
+        </div>
+
+        <!-- 每次發新版都要重新掃 VirusTotal、換掉下面的網址與 SHA-256（發版 SOP 第 7 階段）。 -->
+        <div class="callout">
+          <p><strong>不放心的話，不用相信我們，自己驗。</strong></p>
+          <p>
+            這個安裝檔已經送到 Google 旗下的
+            <a
+              href="https://www.virustotal.com/gui/file/efae2734bf73ffe0c688b8d2ddfddbc3f0dd28120a626ff9426f2c4c3b00ab64"
+              target="_blank"
+              rel="noreferrer"
+              >VirusTotal</a
+            >
+            公開掃描（一次跑 67 家防毒引擎，含 Microsoft、Kaspersky、趨勢科技）——<strong
+              >歷來每一版的結果都是 0 家判定為惡意</strong
+            >。本版（2.5.0）報告在同一個連結；若顯示「尚無報告」，代表這一版剛上架還沒被掃，把下載的檔案拖進去就會當場跑一次，結果任何人都看得到。
+          </p>
+          <details><summary>想自己驗檔案指紋的話（進階，可跳過）</summary><p style="margin-bottom: 0">
+            想確認你下載到的檔案跟我們掃的是同一個，在下載資料夾按右鍵「在終端機開啟」或開
+            PowerShell，貼這一行：<br />
+            <code>Get-FileHash .\weekedit-2.5.0-setup.exe -Algorithm SHA256</code><br />
+            跑出來的那串應該完全等於：<br />
+            <code class="hashline">efae2734bf73ffe0c688b8d2ddfddbc3f0dd28120a626ff9426f2c4c3b00ab64</code>
+          </p></details>
+        </div>
+
+        <p class="small">
+          系統需求：Windows 10 或 11（64 位元）。安裝完桌面會出現「週編」的捷徑。
+        </p>
+
+        <h2 id="activate">2. 輸入序號啟用</h2>
+        <p>第一次打開軟體會要求輸入序號。把我們私訊給你的那一串貼進去，按啟用。</p>
+        <figure>
+          <img src="assets/app-activate.jpg" alt="啟用畫面：輸入序號的欄位" loading="lazy" />
+          <figcaption>試用序號與正式序號用的是同一個欄位，貼上去就好。</figcaption>
+        </figure>
+        <ul>
+          <li>試用序號有到期日，到期後軟體轉為唯讀，<strong>你的資料不會被刪除</strong>。</li>
+          <li>換電腦、重灌之後，同一組序號可以再啟用一次，不用重買。</li>
+          <li>
+            序號請不要外流。查證屬實會永久停權且不退費——停權前會先私訊通知你、給七天說明機會（<a href="terms.html">條款第 7
+            條</a>）。
+          </li>
+        </ul>
+
+        <h2 id="key">3. 接上 AI：申請並貼上 Gemini 金鑰</h2>
+        <p>
+          軟體的 AI 是用<strong>你自己的 Google 帳號</strong>驅動的，所以要先跟 Google
+          拿一把金鑰。啟用後軟體會自動帶你走四個步驟，只要做一次。
+        </p>
+        <figure>
+          <img
+            src="assets/app-wizard.jpg"
+            alt="首次啟動的引導畫面：申請金鑰、貼上金鑰、測試、選風格四個步驟"
+            loading="lazy"
+          />
+          <figcaption>四個步驟：申請金鑰 → 貼上金鑰 → 測試 → 挑一個圖片風格。</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="assets/google-apikeys.jpg"
+            alt="Google AI Studio 的 API Keys 頁面：右上角有「Create API key」按鈕（已框出）"
+            loading="lazy"
+          />
+          <figcaption>Google 那邊長這樣（<a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">aistudio.google.com</a>）：登入後點右上角的「Create API key」，把 AIza 開頭的那串複製起來貼回軟體就好。</figcaption>
+        </figure>
+        <ol>
+          <li>
+            按「<strong>打開 Google 金鑰申請頁</strong>」（或直接開
+            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google 的金鑰申請頁</a>），用你平常的
+            Google 帳號登入，點 <code>Create API key</code> 建立金鑰。
+          </li>
+          <li>把 <code>AIza</code> 開頭的那一整串複製起來（要整串，少一個字元就無效）。</li>
+          <li>回到軟體，貼進「貼上 AIza 開頭的金鑰」欄位。</li>
+          <li>按「測試」，軟體會實際請 AI 回話一次，確認金鑰有效。</li>
+          <li>挑一個圖片風格。之後隨時能換，先選「自由發揮」也可以。</li>
+        </ol>
+
+        <div class="callout">
+          <p><strong>只想先試試看：0 元，不用綁卡。</strong>文案與圖卡都在免費額度內——下面這些只在你想用 AI 圖片美化時才需要。</p>
+          <p><strong>費用講在前面（這筆錢是付給 Google，不是付給我們）</strong></p>
+          <ul style="margin-bottom: 0">
+            <li>申請金鑰<strong>不用綁信用卡</strong>。</li>
+            <li>三平台文案生成有免費額度，每天數百次，一般賣家夠用。</li>
+            <li>貼文圖卡直接用你的商品照套版，<strong>不用開計費</strong>。</li>
+            <li>
+              <strong>AI 圖片美化要在 Google 開啟計費</strong>，每張約
+              NT$2（軟體會先在你電腦上把商品去背，再交給 AI 換背景）。開通時順手設「花費上限」，超過會自動停。
+            </li>
+            <li>
+              ⚠️ 一旦開啟計費，<strong>該專案的免費額度就沒有了</strong>，連文字生成也會開始計費（一次不到
+              NT$0.01）。
+            </li>
+          </ul>
+        </div>
+
+        <p>
+          金鑰以加密方式存在你自己的電腦裡，不會上傳到任何伺服器。之後要換金鑰，到<strong>設定 →
+            常用 → Gemini 金鑰</strong>重新貼一次就好。
+        </p>
+
+        <h2 id="products">4. 把商品搬進來</h2>
+        <p>有商品，AI 才排得出這週要發什麼。兩條路，商品多的話用第一條。</p>
+
+        <figure>
+          <img
+            src="assets/app-newproduct.jpg"
+            alt="新增商品視窗：上半是從蝦皮匯入，下半是手動輸入"
+            loading="lazy"
+          />
+          <figcaption>同一個視窗裡，上面是批量匯入，下面是手動一件一件加。</figcaption>
+        </figure>
+
+        <h3>A. 從賣家中心批量匯入（幾百件一次帶進來）</h3>
+        <ol>
+          <li>
+            到賣家中心 › 我的商品 › <strong>批量工具</strong> › <strong>匯出</strong>，把
+            <strong>文案檔</strong>與<strong>圖片檔</strong>兩個 Excel 下載下來。
+          </li>
+          <li>在軟體裡按「新增商品」，先按「<strong>選文案檔</strong>」選第一個檔。</li>
+          <li>接著按「<strong>選圖片檔</strong>」選第二個檔（順序不能反，要先有文案檔）。</li>
+          <li>在商品清單裡勾選要匯入的商品，按建立。</li>
+        </ol>
+        <p class="small">
+          匯入完會有一張報告，告訴你哪幾件成功、哪幾件缺圖。缺圖的可以事後再補。
+        </p>
+
+        <h3>B. 手動加一件</h3>
+        <ul>
+          <li><strong>商品名稱</strong>與<strong>商品圖片</strong>是必填，圖片最多 9 張。</li>
+          <li>
+            商品介紹不想打字，可以按「<strong>看圖幫我寫一段</strong>」讓 AI
+            看著照片寫，或按「<strong>讓 AI 上網查、幫我寫</strong>」。
+          </li>
+          <li>
+            展開「<strong>進階</strong>」可以填價格、優惠、賣場網址。價格與優惠會自動帶進貼文圖卡的促銷膠囊；賣場網址會自動接到
+            FB／Threads 的文案結尾。
+          </li>
+        </ul>
+
+        <h2 id="plan">5. 排這一週</h2>
+        <p>回到「本週」，按右上角「<strong>幫我排這一週</strong>」。</p>
+        <figure>
+          <img
+            src="assets/app-planweek.jpg"
+            alt="排這一週的視窗：勾選商品清單，下方有參考熱門話題的選項"
+            loading="lazy"
+          />
+        </figure>
+        <ul>
+          <li>勾選這週想推的商品。勾越多，七天的內容越不會重複。</li>
+          <li>
+            「<strong>參考這幾天的熱門話題</strong>」勾了會多查一步最近大家在聊什麼，把時事融進這週的方向（<strong>要開啟 Google 計費才能用</strong>，見第 3 步）；不勾就只用你的商品資料生成。
+          </li>
+          <li>
+            按「排這一週」之後，AI 會照七個角度排滿七天，再一天一天把文案、商品圖與圖卡生出來。
+          </li>
+        </ul>
+        <p class="small">
+          整週生成需要一點時間，過程中右上角會顯示「取消（生成第 N
+          天中…）」，按下去就停在下一天之前。已經生好的那幾天會留著，不會白花。
+        </p>
+        <figure>
+          <img src="assets/app-generating.jpg" alt="整週生成中，右上角顯示取消按鈕" loading="lazy" />
+        </figure>
+
+        <h2 id="check">6. 一天一天看過、改過</h2>
+        <p>在週表上點某一天，右邊會打開那一天的抽屜。生成的東西全部在這裡改完，不用跳頁。</p>
+        <figure>
+          <img
+            src="assets/app-drawer.jpg"
+            alt="某一天的抽屜：上方是貼文圖卡，下方是三平台文案分頁與發布區"
+            loading="lazy"
+          />
+        </figure>
+        <ul>
+          <li><strong>最上面是貼文圖卡</strong>。一張商品照一張卡，多張時下面會有縮圖可以切換。</li>
+          <li>
+            <strong>「這一整天」那一排</strong>：「重新生成文案」只換文字、圖卡一個位元組都不動；「重新生成全部圖片」只重做圖、文案不動；「改提示詞」可以先告訴 AI
+            這天想講什麼、圖片想拍成什麼樣子，再按上面兩顆。
+          </li>
+          <li>
+            <strong>「目前這張卡」那一排</strong>：重新生成這張、刪這張、調整這張（打開排版工具，可以拖字、換版型）。
+          </li>
+          <li>
+            <strong>文案直接在框裡改</strong>。IG、FB、Threads 三個分頁各一份，點分頁切換，改完點別的地方就會自動存。
+          </li>
+        </ul>
+        <figure>
+          <img src="assets/app-drawer-ig.jpg" alt="抽屜裡切換到 IG 分頁的文案" loading="lazy" />
+          <figcaption>三個平台的口氣不一樣，是分開生成的三份，不是同一篇貼三次。</figcaption>
+        </figure>
+
+        <div class="callout">
+          <p style="margin-bottom: 0">
+            <strong>「圖片」那一列</strong>在文案上方，隨時可以換這個商品的美化風格，以及要不要先去背。改了之後<strong>下一次生成</strong>才會用到，不會自動重做已經生好的圖。
+          </p>
+        </div>
+
+        <h2 id="publish">7. 發出去</h2>
+        <p>預設走複製貼上，一個字都不用設定就能用到底。</p>
+        <ol>
+          <li>在抽屜下方按「<strong>複製文字</strong>」，文案就在剪貼簿裡了。</li>
+          <li>按「<strong>下載到電腦</strong>」把圖卡存成檔案。</li>
+          <li>按「<strong>開啟 Facebook／Instagram／Threads</strong>」到平台的發文框，貼上、選圖、發布。</li>
+          <li>回到軟體按「<strong>✓ 發好了，記成已發布</strong>」，那一天就會變成綠色的「已發布」。</li>
+        </ol>
+        <p class="small">
+          按錯了可以再按一次取消記號。這個記號只是給你自己看的進度，不會去平台上做任何事。
+        </p>
+        <p>
+          接了 Meta 的人，抽屜最上面會多一顆「<strong>一鍵發布這一篇</strong>」，發成功之後會自動標記。手動那三顆按鈕仍然一直在——權杖過期或權限被撤時，那是你唯一的出口。
+        </p>
+
+        <h3>看之前發過什麼</h3>
+        <p>側欄的「<strong>已發布紀錄</strong>」一週一份，唯讀，只能看不能改也不能重發。</p>
+        <figure>
+          <img src="assets/app-history.jpg" alt="已發布紀錄頁：以週為單位摺疊的清單" loading="lazy" />
+        </figure>
+
+        <h2 id="advanced">8. 進階設定（不設也能正常用）</h2>
+        <p>都在左下角的「設定」裡。分成常用、進階、其他三組。</p>
+        <figure>
+          <img src="assets/app-settings.jpg" alt="設定視窗：左欄分成常用、進階、其他三組" loading="lazy" />
+        </figure>
+        <ul>
+          <li><strong>貼文結尾</strong>（常用）：每個平台的固定結尾設定一次，之後每篇自動接上。</li>
+          <li><strong>圖片風格</strong>（常用）：全機預設風格。單一商品可以在抽屜的「圖片」那一列另外指定。</li>
+          <li><strong>圖卡浮水印</strong>：上傳店家 logo，之後生成的圖卡會自動蓋上。</li>
+          <li>
+            <strong>讓軟體自己發文</strong>：綁定 Meta。要自己在 Meta 建一個應用程式，大約 20
+            分鐘，軟體裡有精靈一步步帶。<strong>不綁也完全不影響使用</strong>。
+          </li>
+          <li>
+            <strong>短網址與點擊統計</strong>：填 PicSee token 之後，貼文結尾的賣場連結會自動轉短網址，商品卡上就看得到有多少人點進去。
+          </li>
+          <li><strong>序號與版本</strong>：看目前的授權狀態、換序號、檢查更新。</li>
+        </ul>
+
+        <h2 id="trouble">9. 卡住的話</h2>
+        <ul>
+          <li>
+            <strong>安裝時跳藍色警告</strong>——正常，見<a href="#install">第 1 步</a>。
+          </li>
+          <li>
+            <strong>圖卡一直生不出來，文案卻沒問題</strong>——多半是 Gemini
+            還沒開啟計費。免費方案對圖片模型的額度是零。到設定按一次「測試金鑰」就知道。
+          </li>
+          <li>
+            <strong>文案讀起來很怪</strong>——用抽屜裡的「改提示詞」告訴 AI
+            這天想講什麼，再按「重新生成文案」。或直接在文字框裡改，改完就是你的版本。
+          </li>
+          <li>
+            <strong>其他任何狀況</strong>——私訊粉專，附上畫面截圖。工作日 48 小時內回覆。
+          </li>
+        </ul>
+
+        <div class="btn-row" style="margin-top: 40px">
+          <a class="btn" href="https://m.me/weekedit.tw">私訊粉專問問題</a>
+          <a class="btn ghost" href="index.html">回產品頁</a>
+        </div>
+      </div>
+    </main>
+
+    <a class="toc-fab" href="#toc">☰ 目次</a>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-links">
+          <a href="https://github.com/addle1116/promo-helper-meta/releases/download/v2.5.0/weekedit-2.5.0-setup.exe">下載試用</a>
+          <a href="guide.html">上手指引</a>
+          <a href="post-ideas.html">免費貼文靈感</a>
+
+          <a href="changelog.html">更新紀錄</a>
+          <a href="terms.html">購買條款</a>
+          <a href="https://www.facebook.com/weekedit.tw" target="_blank" rel="noreferrer">看粉專</a>
+          <a href="https://m.me/weekedit.tw">粉專私訊</a>
+          <a href="mailto:weekeditai@gmail.com">weekeditai@gmail.com</a>
+        </div>
+        <p style="margin: 0">
+          週編由電商賣家×工程師團隊開發。合夥人經營蝦皮賣場 <a href="https://shopee.tw/nutreat.giftbox" target="_blank" rel="noreferrer">Nutrieat 紐特禮品</a>（登記名稱：紐特賀藝行・統編 91244639）。
+
+        </p>
+
+        <p style="margin: 0">
+          週編為獨立開發軟體，與任何電商平台無關聯；平台名稱與商標為各該公司所有，本頁僅用於描述相容性。
+        </p>
+      </div>
+    </footer>
+    <script data-goatcounter="https://weekedit.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  </body>
+</html>

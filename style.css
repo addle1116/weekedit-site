@@ -1,0 +1,1348 @@
+/* 週編 官方網站 —— 共用樣式
+   視覺沿用 app 的暖色工作台識別（柿橘 #e1552e／砂色底／白卡）。
+   排版語彙取自產品本身：一週七天、直排中文日期標記、圖卡 1:1。
+   純靜態，無建置步驟；外部資源只有一支 Google Fonts（思源宋體，只給大標）。 */
+
+:root {
+  --ink: #2a2622;
+  /* 同上：原本 #6b6157 在砂底 4.41，差一點 */
+  --ink-soft: #655c52;
+  --cream: #efe9df;
+  --sand: #e5dbc8;
+  --paper: #ffffff;
+  --line: #ddd3c2;
+  --line-soft: #e9e1d4;
+  --persimmon: #e1552e;
+  /* 砂色底(section.tint)上也要過 WCAG AA 4.5——原本 #b8401d 在砂底只有 4.04 */
+  --persimmon-deep: #a63818;
+  --pine: #3e7c5a;
+
+  --display: 'Noto Serif TC', 'Songti TC', 'Source Han Serif TC', serif;
+  --body:
+    -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei',
+    'Helvetica Neue', sans-serif;
+
+  --wrap: 1060px;
+  --radius: 12px;
+  --radius-lg: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* .rail 用 100vw 滿版；Windows 的佔位式捲軸會讓 100vw > 內容寬，右緣溢出一條橫捲軸 */
+  overflow-x: clip;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  /* ❗height: auto 不能省：有寫 width／height 屬性的圖（hero 那張）在版心縮小時，
+     寬度會跟著縮、高度卻停在屬性值，整張被拉長。 */
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--persimmon-deep);
+  text-underline-offset: 3px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* ---------- 版心 ---------- */
+
+.wrap {
+  width: min(100% - 40px, var(--wrap));
+  margin-inline: auto;
+}
+
+.narrow {
+  width: min(100% - 40px, 760px);
+  margin-inline: auto;
+}
+
+section {
+  padding-block: clamp(48px, 7vw, 88px);
+}
+
+section.tint {
+  background: var(--sand);
+}
+
+section.paper {
+  background: var(--paper);
+}
+
+/* ---------- 字級 ---------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.6em;
+}
+
+h1 {
+  font-size: clamp(30px, 5.2vw, 52px);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: clamp(24px, 3.4vw, 34px);
+}
+
+h3 {
+  font-size: clamp(19px, 2.2vw, 23px);
+}
+
+p {
+  margin: 0 0 1.1em;
+}
+
+.eyebrow {
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--persimmon-deep);
+  margin: 0 0 18px;
+}
+
+.lead {
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--ink-soft);
+  max-width: 40em;
+}
+
+.small {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+/* ---------- 頂部導覽 ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(239, 233, 223, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 62px;
+  padding-block: 10px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+/* 手機：導覽列會折成兩行，再黏在頂端就吃掉三分之一個螢幕——小螢幕改成跟著捲走。 */
+@media (max-width: 700px) {
+  .topbar {
+    position: static;
+  }
+  .navlinks {
+    gap: 14px 18px;
+    font-size: 14px;
+  }
+}
+
+/* 品牌標記＝軟體本體的 app icon（resources/icon.png），不再用字磚 */
+.brand-tile {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  flex: none;
+  box-shadow: 0 2px 8px -3px rgba(225, 85, 46, 0.7);
+}
+
+.navlinks {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  font-size: 15px;
+  flex-wrap: wrap;
+}
+
+.navlinks a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.navlinks a:hover,
+.navlinks a[aria-current='page'] {
+  color: var(--persimmon-deep);
+}
+
+/* ---------- 按鈕 ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--persimmon-deep);
+  background: var(--persimmon-deep);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -10px var(--persimmon-deep);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--persimmon-deep);
+}
+
+.btn.ghost:hover {
+  background: rgba(225, 85, 46, 0.08);
+}
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+:where(a, button):focus-visible {
+  outline: 3px solid var(--persimmon);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-top: clamp(24px, 3vw, 40px);
+  padding-bottom: 0;
+}
+
+/* 招牌橫幅＝粉專封面本人（同一句話、同一個署名，粉專與網站是同一張臉） */
+.masthead {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 44px -34px rgba(42, 38, 34, 0.55);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+/* 這張是 FB 封面本人，上下大片留白是給 FB 裁的；網頁上裁掉，主 CTA 才不會被推到摺線下面 */
+.masthead img {
+  width: 100%;
+  aspect-ratio: 1640 / 455;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 700px) {
+  .masthead img {
+    aspect-ratio: 1640 / 520;
+  }
+}
+
+.hero h1 {
+  max-width: 15em;
+  font-size: clamp(26px, 3.8vw, 40px);
+}
+
+/* 手機上招牌圖縮到 350px 寬，圖裡的主標只剩約 10px、讀不到——小螢幕把真標題放出來。 */
+@media (max-width: 860px) {
+  .hero h1.sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 0 14px;
+    padding: 0;
+    clip-path: none;
+    overflow: visible;
+    white-space: normal;
+    font-size: clamp(27px, 7.2vw, 34px);
+  }
+  /* 手機上硬斷行會斷出孤字 */
+  h2 br {
+    display: none;
+  }
+}
+
+/* 螢幕上看得見圖裡那句話，讀屏軟體與搜尋引擎看不到——補一份純文字。 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero-note {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.shot {
+  margin-top: clamp(32px, 5vw, 54px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -32px rgba(42, 38, 34, 0.45);
+  background: var(--paper);
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+/* 說明文字包在白卡裡時要自己給內距，不然會貼著卡的邊 */
+.shot figcaption {
+  margin-top: 0;
+  padding: 14px 20px 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* ---------- 合夥人引言 ---------- */
+
+.quote {
+  border-left: 4px solid var(--persimmon);
+  padding: 4px 0 4px 22px;
+  margin: 0;
+}
+
+.quote p {
+  font-family: var(--display);
+  font-size: clamp(19px, 2.4vw, 25px);
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+
+.quote cite {
+  font-style: normal;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* ---------- 一週七天（本站的招牌區塊）---------- */
+
+.weekrail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* 自動輪播的滿版軌道。手動捲動的版本已拿掉——桌機用滑鼠推不動、Mac 捲軸還會自動隱藏，
+   等於七天只看得到三天。 */
+.rail {
+  margin-top: 34px;
+  overflow: hidden;
+  padding: 4px 0 22px;
+  /* 版心外滿版 */
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  /* 兩側淡出，卡片不會硬邊切斷 */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.railtrack {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  /* 跑一半＝複本剛好接到起點的位置，循環回 0 看不出接縫 */
+  animation: railslide 92s linear infinite;
+}
+
+.rail:hover .railtrack,
+.rail:focus-within .railtrack {
+  animation-play-state: paused;
+}
+
+@keyframes railslide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* gap 也要算進去：位移 = 一半的軌道寬 + 半個間距 */
+    transform: translateX(calc(-50% - 9px));
+  }
+}
+
+/* 不想看動畫的人：關掉輪播，改回可以自己捲 */
+@media (prefers-reduced-motion: reduce) {
+  .rail {
+    overflow-x: auto;
+  }
+  .railtrack {
+    animation: none;
+  }
+}
+
+.railcard {
+  flex: 0 0 auto;
+  width: 236px;
+  display: flex;
+  gap: 12px;
+}
+
+/* 直排日期標記：中文縱書是這個產品自己的排版語彙（圖卡版型就用直排大標） */
+.daymark {
+  writing-mode: vertical-rl;
+  -webkit-text-orientation: upright;
+  text-orientation: upright;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.22em;
+  color: var(--persimmon-deep);
+  border-right: 1px solid var(--line);
+  padding-right: 8px;
+  flex: none;
+}
+
+.railcard.today .daymark {
+  color: var(--persimmon);
+}
+
+.railbody {
+  min-width: 0;
+}
+
+.railbody img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: transform 0.2s ease;
+}
+
+.railcard:hover .railbody img {
+  transform: translateY(-3px);
+}
+
+.angle {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--persimmon-deep);
+  background: rgba(225, 85, 46, 0.1);
+  border-radius: 999px;
+  padding: 2px 11px;
+}
+
+.railbody p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ---------- 條列與卡片 ---------- */
+
+.pains {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.pains li {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(17px, 2vw, 19px);
+}
+
+.pains li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.steps {
+  display: grid;
+  gap: clamp(36px, 5vw, 56px);
+  margin-top: 40px;
+}
+
+.step {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .step {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+  /* ❗翻面時欄寬也要跟著換，只換 order 會讓圖掉進窄欄、比別張小四分之一 */
+  .step.flip {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+  .step.flip .step-text {
+    order: 2;
+  }
+}
+
+.step-no {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--persimmon-deep);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  font-size: 19px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+/* 八個功能各給一個色頭。同一個暖色家族的深淺，不是彩虹——
+   顏色是用來分辨，不是用來熱鬧。左緣色條＋標題同色，底色只上很淡一層。 */
+.card {
+  border-left: 4px solid var(--tone, var(--persimmon));
+  background:
+    linear-gradient(var(--tone-weak, transparent), var(--tone-weak, transparent)),
+    var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  color: var(--tone, var(--ink));
+}
+
+.card.c1 {
+  --tone: #c0431f;
+  --tone-weak: #fdf1ea;
+} /* 柿 — 主線功能 */
+.card.c2 {
+  --tone: #a8763f;
+  --tone-weak: #fbf3e8;
+} /* 焦糖 */
+.card.c3 {
+  --tone: #3e7c5a;
+  --tone-weak: #ecf3ee;
+} /* 松綠 */
+.card.c4 {
+  --tone: #8a6a4f;
+  --tone-weak: #f6f0e9;
+} /* 暖褐 */
+.card.c5 {
+  --tone: #b07d12;
+  --tone-weak: #fbf4e2;
+} /* 芥黃 */
+.card.c6 {
+  --tone: #7a6a4a;
+  --tone-weak: #f7f2e8;
+} /* 橄欖褐 */
+.card.c7 {
+  --tone: #9c5a44;
+  --tone-weak: #faeee9;
+} /* 磚紅 */
+.card.c8 {
+  --tone: #6f6a52;
+  --tone-weak: #f3f1e8;
+} /* 暖灰綠 */
+
+/* 「看畫面」只出現在真的有截圖的方格。整塊做成可點但點了沒東西，比沒有更糟。 */
+.card-shot {
+  margin-top: auto;
+  padding-top: 14px;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 700;
+  /* ❗不能直接用 --tone：那組色是配 19px 大標的（大字門檻 3.0），14px 要 4.5 才夠 */
+  color: var(--tone-strong, var(--persimmon-deep));
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  line-height: 1.4;
+}
+
+.card-shot:hover {
+  opacity: 0.72;
+}
+
+/* ---------- 放大檢視 ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(28, 24, 20, 0.86);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  animation: fadein 0.18s ease both;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lb-inner {
+  position: relative;
+  max-width: min(1180px, 100%);
+  margin: 0;
+}
+
+.lb-inner img {
+  width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.lb-inner figcaption {
+  color: #efe7dc;
+  text-align: center;
+  margin-top: 14px;
+  font-size: 15px;
+}
+
+.lb-close {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lb-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- 對照表 ---------- */
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 16px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+
+thead th {
+  font-family: var(--display);
+  font-size: 16px;
+  background: var(--sand);
+  border-bottom: 1px solid var(--line);
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td.mine {
+  font-weight: 700;
+}
+
+/* ---------- 定價 ---------- */
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+  align-items: start;
+}
+
+.plan {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+}
+
+.plan.main {
+  border: 2px solid var(--persimmon);
+  box-shadow: 0 18px 44px -30px rgba(42, 38, 34, 0.6);
+}
+
+.plan h3 {
+  margin-bottom: 4px;
+}
+
+.price {
+  font-family: var(--display);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 6px 0 18px;
+}
+
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.plan li::before {
+  content: '·';
+  color: var(--persimmon);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+details {
+  border-bottom: 1px solid var(--line);
+}
+
+summary {
+  cursor: pointer;
+  padding: 18px 0;
+  font-weight: 700;
+  font-size: 17px;
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+
+summary:hover {
+  color: var(--persimmon-deep);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: '＋';
+  color: var(--persimmon);
+  font-weight: 700;
+  flex: none;
+}
+
+details[open] summary::before {
+  content: '－';
+}
+
+details > *:not(summary) {
+  margin-left: 28px;
+  padding-bottom: 4px;
+}
+
+details p:last-child {
+  margin-bottom: 18px;
+}
+
+/* ---------- 頁尾 ---------- */
+
+footer {
+  background: var(--ink);
+  color: #d9d2c8;
+  padding-block: 48px;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+footer a {
+  color: #f2d4c7;
+}
+
+footer .foot-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+
+/* ---------- 內文頁（指引／條款）---------- */
+
+.doc {
+  padding-block: clamp(36px, 5vw, 60px);
+}
+
+.doc h2 {
+  margin-top: 2.2em;
+  padding-top: 0.4em;
+  border-top: 1px solid var(--line);
+}
+
+.doc h2:first-of-type {
+  margin-top: 1em;
+}
+
+.doc h3 {
+  margin-top: 1.8em;
+}
+
+.doc ul,
+.doc ol {
+  padding-left: 1.4em;
+  margin: 0 0 1.2em;
+}
+
+.doc li {
+  margin-bottom: 0.5em;
+}
+
+.doc figure {
+  margin: 28px 0;
+}
+
+.doc figure img {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 40px -30px rgba(42, 38, 34, 0.6);
+}
+
+.toc {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 26px;
+  margin-bottom: 34px;
+}
+
+.toc p {
+  margin: 0 0 8px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.3em;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.callout {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--persimmon);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 24px 0;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.warn {
+  border-left-color: #b45309;
+}
+
+.todo {
+  background: #fff6d9;
+  border: 1px dashed #b45309;
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  color: #7c4a08;
+}
+
+.todo p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 進場動態 ---------- */
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.rise-2 {
+  animation-delay: 0.08s;
+}
+
+.rise-3 {
+  animation-delay: 0.16s;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- 兩週分隔（跟日期標記同一套語彙）---------- */
+
+.railsep {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-inline: 6px;
+}
+
+.railsep span {
+  writing-mode: vertical-rl;
+  -webkit-text-orientation: upright;
+  text-orientation: upright;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  padding: 18px 6px;
+}
+
+/* 暫停鈕：觸控裝置沒有 hover，沒有這顆的話手機使用者停不下輪播（WCAG 2.2.2） */
+.rail-pause {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--persimmon-deep);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.rail-pause:hover {
+  background: var(--persimmon-deep);
+  color: #fff;
+}
+
+.rail.paused .railtrack {
+  animation-play-state: paused;
+}
+
+/* ---------- 定價 ---------- */
+
+.plans {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.plan-note {
+  margin: 26px auto 0;
+  padding: 16px 22px;
+  background: var(--sand);
+  border-radius: var(--radius);
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 760px;
+}
+
+.plan-note strong {
+  color: var(--persimmon-deep);
+}
+
+.price-foot {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* ---------- 功能方格的小字深階（14px 要 4.5:1）---------- */
+
+.card.c1 {
+  --tone-strong: #a63818;
+}
+.card.c2 {
+  --tone-strong: #8f6330;
+}
+.card.c3 {
+  --tone-strong: #376f51;
+}
+.card.c4 {
+  --tone-strong: #7e6047;
+}
+.card.c5 {
+  --tone-strong: #8f650c;
+}
+.card.c6 {
+  --tone-strong: #6b5c3c;
+}
+.card.c7 {
+  --tone-strong: #8b4a35;
+}
+.card.c8 {
+  --tone-strong: #5e5943;
+}
+.card.c9 {
+  --tone: #b1522e;
+  --tone-weak: #fdefe7;
+  --tone-strong: #9a4523;
+}
+
+/* 今天那一格的日期標記：亮柿在米底只有 3.14，改用深階 */
+.railcard.today .daymark {
+  color: var(--persimmon-deep);
+}
+
+/* 見證區那張圖卡：1:1 的圖不需要吃滿版心 */
+.testimonial-shot {
+  margin-top: 30px;
+  max-width: 460px;
+}
+
+/* ---------- 手機的對照表 ---------- */
+
+/* 640px 以下橫著擺只看得到「ChatGPT」那一欄，我方那欄整個在螢幕外——
+   改成一列一張卡，欄名用 ::before 補回去。 */
+@media (max-width: 640px) {
+  table {
+    min-width: 0;
+    font-size: 15px;
+  }
+  thead {
+    display: none;
+  }
+  tbody tr {
+    display: block;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody tr:last-child {
+    border-bottom: 0;
+  }
+  td {
+    display: block;
+    border: 0;
+    padding: 3px 0;
+  }
+  td:first-child {
+    font-family: var(--display);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  td:nth-child(2)::before {
+    content: 'ChatGPT：';
+    color: var(--ink-soft);
+  }
+  td.mine::before {
+    content: '週編：';
+    color: var(--persimmon-deep);
+  }
+}
+
+/* ---------- 跳到主要內容（鍵盤／讀屏用）---------- */
+
+.skiplink {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--persimmon-deep);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 0 0 var(--radius) 0;
+  font-weight: 700;
+}
+
+.skiplink:focus {
+  left: 0;
+}
+
+/* ---------- 付款流程（#price）＋下載警告預告 ----------
+   .sellerstats 目前無使用端，保留待版位定案。 */
+
+.sellerstats {
+  list-style: none;
+  padding: 0;
+  margin: 34px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.sellerstats li {
+  background: var(--paper);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sellerstats b {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 25px);
+  line-height: 1.25;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.sellerstats span {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.payflow {
+  counter-reset: pf;
+  list-style: none;
+  padding: 0;
+  margin: 30px auto 0;
+  max-width: 760px;
+  display: grid;
+  gap: 2px;
+  text-align: left;
+}
+
+.payflow li {
+  position: relative;
+  padding: 14px 0 14px 46px;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.payflow li:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.payflow li::before {
+  counter-increment: pf;
+  content: counter(pf);
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: var(--persimmon);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.warnnote {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--cream);
+  border-left: 3px solid var(--persimmon);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  line-height: 1.8;
+}
+
+.warnnote strong {
+  color: var(--persimmon-deep);
+}
+
+/* 檔案指紋：64 個字的 hash，不斷行會把整頁撐出橫向捲動 */
+.hashline {
+  display: inline-block;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+/* ===== W-pack 預覽 ===== */
+@media (max-width: 860px) { .masthead { display: none; } }
+.stickycta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+  display: none; align-items: center; gap: 12px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: var(--paper); border-top: 1px solid var(--line); box-shadow: 0 -6px 18px -8px rgba(0,0,0,.18); }
+.stickycta.show { display: flex; }
+.stickycta span { font-size: 13px; color: var(--ink-soft); }
+.stickycta a { margin-left: auto; background: var(--persimmon); color: #fff; font-weight: 700;
+  font-size: 14px; border-radius: 22px; padding: 9px 18px; text-decoration: none; white-space: nowrap; }
+@media (min-width: 861px) { .stickycta { display: none !important; } }
+
+/* w9 真實輸出三欄（2026-08-02） */
+#realcopy .secnote-real { color: var(--ink-soft); font-size: 15px; margin: 6px 0 22px; max-width: 46em; }
+.copyproof { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.copyproof article { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 21px 20px 18px; min-width: 0; position: relative; overflow: hidden; }
+.copyproof article::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.copyproof article.pf-ig { background: #fdf6f9; }
+.copyproof article.pf-ig::before { background: linear-gradient(90deg, #833ab4, #e1306c, #fcb045); }
+.copyproof article.pf-fb { background: #f4f8fd; }
+.copyproof article.pf-fb::before { background: #1877f2; }
+.copyproof article.pf-th { background: #f6f5f3; }
+.copyproof article.pf-th::before { background: #16181c; }
+.copyproof h3 { font-size: 15px; color: var(--persimmon-deep); margin: 0 0 10px; letter-spacing: 0.04em; }
+.copyproof .pf-ig h3 { color: #c13584; }
+.copyproof .pf-fb h3 { color: #1877f2; }
+.copyproof .pf-th h3 { color: #16181c; }
+.copyproof pre { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--body); font-size: 13.5px; line-height: 1.8; color: var(--ink-soft); }
+
+/* ===== 2026-08-03 優化八項 ===== */
+
+/* P1／P3：hero 第二顆按鈕直接用 .btn ghost；頂欄小顆 CTA（手機有底部常駐條，這顆只給桌機） */
+.navlinks .nav-cta { background: var(--persimmon-deep); color: #fff; border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; text-decoration: none; }
+.navlinks .nav-cta:hover { background: var(--persimmon); color: #fff; }
+@media (max-width: 700px) { .navlinks .nav-cta { display: none; } }
+
+/* 8/5：頂欄下載鈕（店主指定放最上排）——outline 變體；掛在 .nav-cta 上共用手機隱藏規則 */
+.navlinks .nav-dl { background: transparent; color: var(--persimmon-deep); border: 1.5px solid var(--persimmon-deep); padding: 6.5px 16px; }
+.navlinks .nav-dl:hover { background: var(--persimmon-deep); color: #fff; }
+
+/* P2：hero 信任徽章列 */
+.trustrow { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.trustrow li { display: inline-flex; align-items: center; gap: 7px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13.5px; font-weight: 700; color: var(--ink-soft); }
+
+/* P4：對照表後就地 CTA */
+.midcta { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; text-align: center; }
+.midcta span { font-size: 16px; color: var(--ink-soft); }
+.midcta strong { color: var(--ink); }
+.midcta .btn { padding: 10px 22px; font-size: 15px; }
+
+/* P5：三平台卡超過高度時，改淡出＋展開（.clip 由 JS 掛上；沒有 JS 就顯示全文） */
+.copyproof article.clip pre { max-height: 300px; overflow: hidden; -webkit-mask-image: linear-gradient(#000 72%, transparent); mask-image: linear-gradient(#000 72%, transparent); }
+.copyproof article.clip.open pre { max-height: none; -webkit-mask-image: none; mask-image: none; }
+.copy-expand { margin-top: 10px; background: none; border: none; padding: 0; font: inherit; font-weight: 700; font-size: 13.5px; color: var(--persimmon-deep); cursor: pointer; border-bottom: 1px solid currentColor; line-height: 1.4; }
+.copy-expand:hover { opacity: 0.72; }
+
+/* P6：見證區兩張圖桌機併排 */
+.proofpair { display: grid; gap: 16px; margin-top: 30px; }
+@media (min-width: 720px) {
+  .proofpair { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+.proofpair .testimonial-shot { margin-top: 0; max-width: none; }
+
+/* P7：FAQ 分組小標 */
+.faq-group { margin: 30px 0 4px; font-size: 13.5px; font-weight: 800; letter-spacing: 0.14em; color: var(--persimmon-deep); }
+
+/* P8：指引頁手機版浮動目次鈕 */
+.toc-fab { display: none; }
+@media (max-width: 700px) {
+  .toc-fab { position: fixed; right: 14px; bottom: 18px; z-index: 80; display: inline-flex; background: var(--persimmon-deep); color: #fff; border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.35); }
+}
