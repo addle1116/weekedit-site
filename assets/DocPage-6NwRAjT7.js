@@ -1,0 +1,1 @@
+import{j as s,T as e,b as n}from"./app-Cw439kzJ.js";function t({html:a,current:r}){return s.jsxs(s.Fragment,{children:[s.jsx(e,{current:r}),s.jsx("main",{id:"main",className:"prose mx-auto w-[min(100%-32px,860px)] pb-8 pt-[104px]",dangerouslySetInnerHTML:{__html:a}}),s.jsx(n,{})]})}export{t as D};
