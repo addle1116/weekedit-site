@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>找不到這一頁 — 週編</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/assets/icon.png" />
+    <!-- Meta 像素（資料集 2123016445281430）：衡量廣告成效用。
+         ❗它會寫 Cookie 並把瀏覽行為送給 Meta，跟無 Cookie 的 GoatCounter 不同——
+         terms.html 第 9 條「本網站」那段有揭露，改這裡要同步改那裡。 -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        }
+        if (!f._fbq) f._fbq = n
+        n.push = n
+        n.loaded = !0
+        n.version = '2.0'
+        n.queue = []
+        t = b.createElement(e)
+        t.async = !0
+        t.src = v
+        s = b.getElementsByTagName(e)[0]
+        s.parentNode.insertBefore(t, s)
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+      // 兩顆 pixel 是刻意的：281430「官網」建在企業管理平台「施昶安」底下（網域驗證也在那），
+      // 214469「週編官網」則是舊廣告帳號（有扣款紀錄那個）唯一拿得到的資料集。兩顆都 init，
+      // 後面的 track 會同時送到兩邊，所以廣告不管用哪個帳號投都收得到轉換。
+      fbq('init', '2123016445281430')
+      fbq('init', '1583026953214469')
+      fbq('track', 'PageView')
+    </script>
+    
+    <script>
+      // 下載鈕＝官網唯一測得到的轉換（安裝之後的事在瀏覽器外面，像素看不到）。
+      // 用標準事件 Lead，廣告後台才能直接選它當最佳化目標；哪一顆鈕放在 content_name。
+      // 掛在 document 上做事件委派，所以新增下載鈕不必再改這段——只要帶 data-goatcounter-click="dl-…"。
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest && e.target.closest('[data-goatcounter-click^="dl-"]')
+        if (!a || !window.fbq) return
+        // ❗**手機上點下載鈕不算轉換**（2026-09-02 店主裁定）：那顆鈕下載到的是 Windows
+        //   安裝檔，手機**裝不起來**——回報成 Lead 等於告訴 Meta「會在手機上點下載的人是
+        //   好客人」，它就會去找更多這種人，而這種人一個都不會變成使用者。每天 NT$150
+        //   都在強化這個錯誤。
+        // ❗**按鈕本身不動、畫面一個字都不變**：只是不對 Meta 說那句話。
+        //   GoatCounter 照樣記得到（`data-goatcounter-click` 沒動），所以「有幾個人點」
+        //   這個數字我們自己還看得到。
+        // ❗**斷點沿用 Tailwind 的 `sm`（640px）**：版面本來就是用它決定手機／電腦
+        //   （`sm:hidden`／`hidden sm:inline-flex`），另造一個數字會讓「看得到鈕」跟
+        //   「算不算轉換」在某個寬度區間打架。
+        // ❗**手機那半邊的轉換不會因此消失**：`TryOut.tsx` 在「留 email 寄安裝連結」
+        //   送出成功時本來就會自己送一顆 `Lead`（`content_name: 'send-link'`）——那才是
+        //   手機訪客唯一做得到的正確動作。所以這道守門是**把錯的訊號拿掉**，
+        //   不是把手機那半邊變成靜音。
+        if (window.matchMedia && window.matchMedia('(max-width: 639px)').matches) return
+        fbq('track', 'Lead', { content_name: a.getAttribute('data-goatcounter-click') })
+      })
+    </script>
+    <script type="module" crossorigin src="/assets/404-CQqlq6dt.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/app-NoCvk-Sk.js">
+    <link rel="modulepreload" crossorigin href="/assets/DocPage-wdpTIBAD.js">
+    <link rel="stylesheet" crossorigin href="/assets/app-D27YjIyC.css">
+  </head>
+  <body>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=2123016445281430&ev=PageView&noscript=1"
+        alt=""
+    /></noscript>
+    <div id="root"></div>
+    <script data-goatcounter="https://weekedit.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+# ❗訪客做出來的成品（信裡那條連結指的那一頁），網址帶隨機 token。
+#   頁面本身另有 noindex，這一行是第二道：不要讓它出現在任何搜尋結果裡。
+Disallow: /card.html

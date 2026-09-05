@@ -1,0 +1,259 @@
+import{c as l,j as n,R as t}from"./app-NoCvk-Sk.js";import{D as s}from"./DocPage-wdpTIBAD.js";const r=`<div class="narrow">
+        <p class="eyebrow">上手指引</p>
+        <h1>從安裝到發出第一篇，大約二十分鐘</h1>
+        <p class="lead">
+          整條路兩步：<strong>下載安裝 → 填一個 email，開始排第一週</strong>。<strong>不用申請 AI 金鑰、不用綁信用卡</strong>，AI 的費用我們出。照著做，卡住直接私訊粉專，把畫面截圖給我們就好。
+        </p>
+        <p style="margin:18px 0 0">
+          <a class="btn" data-goatcounter-click="dl-guide-top" href="https://github.com/addle1116/promo-helper-meta/releases/download/v2.15.0/weekedit-2.15.0-setup.exe">下載免費試用（14 天）</a>
+        </p>
+
+        <div class="callout">
+          <p style="margin: 0">
+            <strong>不用先跟我們要序號。</strong>軟體裝好打開之後，填一個 email
+            按下去就開始了，不必等我們回覆。有問題再到<a
+              href="https://m.me/weekedit.tw"
+              target="_blank"
+              rel="noreferrer"
+              >粉專</a
+            >私訊我們。
+          </p>
+        </div>
+
+        <nav class="toc" id="toc" aria-label="目次">
+          <p>這份指引包含</p>
+          <ol>
+            <li><a href="#install">安裝軟體（Windows 會跳藍色警告，正常的）</a></li>
+            <li><a href="#activate">填 email，開始試用</a></li>
+            <li><a href="#products">把商品搬進來</a></li>
+            <li><a href="#plan">排這一週</a></li>
+            <li><a href="#check">一天一天看過、改過</a></li>
+            <li><a href="#publish">發出去</a></li>
+            <li><a href="#advanced">進階設定（不設也能正常用）</a></li>
+            <li><a href="#trouble">卡住的話</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="install">1. 安裝軟體</h2>
+        <ol>
+          <li>
+            按這裡<a
+              href="https://github.com/addle1116/promo-helper-meta/releases/download/v2.15.0/weekedit-2.15.0-setup.exe"
+              >下載安裝檔</a
+            >（約 153 MB）。瀏覽器會問你要存到哪裡，存桌面最好找。
+          </li>
+          <li>下載完，對著那個 <code>.exe</code> 檔點兩下執行。</li>
+        </ol>
+
+        <div class="callout warn">
+          <p>
+            <strong>Windows 會跳出藍色的「Windows 已保護您的電腦」——這是正常的，不是病毒。</strong>
+          </p>
+          <p style="margin-bottom: 0">
+            小型軟體沒有向微軟購買年費簽章憑證都會這樣。點畫面上的「<strong>其他資訊</strong>」，再點下面出現的「<strong>仍要執行</strong>」就可以繼續安裝。
+          </p>
+        </div>
+
+        <!-- 每次發新版都要重新掃 VirusTotal、換掉下面的網址與 SHA-256（發版 SOP 第 7 階段）。 -->
+        <div class="callout">
+          <p><strong>不放心的話，不用相信我們，自己驗。</strong></p>
+          <p>
+            這個安裝檔已經送到 Google 旗下的
+            <a
+              href="https://www.virustotal.com/gui/file/9864e85c49dc08aaf7d7774318e7dfa47bfa84dd1da68cd6b1ab4055e0be9798"
+              target="_blank"
+              rel="noreferrer"
+              >VirusTotal</a
+            >
+            公開掃描（一次跑上百家防毒引擎，含 Microsoft、Kaspersky、趨勢科技）——<strong
+              >歷來每一版的結果都是 0 家判定為惡意</strong
+            >。本版的報告在同一個連結；若顯示「尚無報告」，代表這一版剛上架還沒被掃，把下載的檔案拖進去就會當場跑一次，結果任何人都看得到。
+          </p>
+          <details><summary>想自己驗檔案指紋的話（進階，可跳過）</summary><p style="margin-bottom: 0">
+            想確認你下載到的檔案跟我們掃的是同一個，在下載資料夾按右鍵「在終端機開啟」或開
+            PowerShell，貼這一行：<br />
+            <code>Get-FileHash .\\weekedit-2.15.0-setup.exe -Algorithm SHA256</code><br />
+            跑出來的那串應該完全等於：<br />
+            <code class="hashline">9864e85c49dc08aaf7d7774318e7dfa47bfa84dd1da68cd6b1ab4055e0be9798</code>
+          </p></details>
+        </div>
+
+        <p class="small">
+          系統需求：Windows 10 或 11（64 位元）。安裝完桌面會出現「週編」的捷徑。
+        </p>
+
+        <h2 id="activate">2. 填 email，開始試用</h2>
+        <p>
+          第一次打開軟體會問你的 email。填進去、按「開始 14
+          天試用」，就直接進主畫面了——不用序號、不用信用卡，也不用等我們回覆。
+        </p>
+        <ul>
+          <li>試用是 14 天，到期後軟體轉為唯讀，<strong>你的資料不會被刪除</strong>。</li>
+          <li><strong>一台電腦一組</strong>。換電腦或重灌之後如果開不了，私訊粉專跟我們說一聲，我們幫你處理。</li>
+          <li>
+            我們只收兩樣東西：你填的 email，以及一組從你電腦算出來、<strong>沒辦法還原回去</strong>的識別碼（就是用來確保一台電腦只領一次）。email
+            是拿來寄使用說明、以及在你卡住時聯絡你的（<a href="terms.html">條款第 9 條</a>）。
+          </li>
+        </ul>
+
+        <h2 id="products">3. 把商品搬進來</h2>
+        <p>有商品，AI 才排得出這週要發什麼。兩條路，商品多的話用第一條。</p>
+
+        <figure>
+          <img
+            src="assets/app-newproduct.jpg"
+            alt="新增商品視窗：上半是從蝦皮匯入，下半是手動輸入"
+            loading="lazy"
+          />
+          <figcaption>同一個視窗裡，上面是批量匯入，下面是手動一件一件加。</figcaption>
+        </figure>
+
+        <h3>A. 從賣家中心批量匯入（幾百件一次帶進來）</h3>
+        <ol>
+          <li>
+            到賣家中心 › 我的商品 › <strong>批量工具</strong> › <strong>匯出</strong>，把
+            <strong>文案檔</strong>與<strong>圖片檔</strong>兩個 Excel 下載下來。
+          </li>
+          <li>在軟體裡按「新增商品」，先按「<strong>選文案檔</strong>」選第一個檔。</li>
+          <li>接著按「<strong>選圖片檔</strong>」選第二個檔（順序不能反，要先有文案檔）。</li>
+          <li>在商品清單裡勾選要匯入的商品，按建立。</li>
+        </ol>
+        <p class="small">
+          匯入完會有一張報告，告訴你哪幾件成功、哪幾件缺圖。缺圖的可以事後再補。
+        </p>
+
+        <h3>B. 手動加一件</h3>
+        <ul>
+          <li><strong>商品名稱</strong>與<strong>商品圖片</strong>是必填，圖片最多 9 張。</li>
+          <li>
+            商品介紹不想打字，可以按「<strong>看圖幫我寫一段</strong>」讓 AI
+            看著照片寫，或按「<strong>讓 AI 上網查、幫我寫</strong>」。
+          </li>
+          <li>
+            展開「<strong>進階</strong>」可以填價格、優惠、賣場網址。價格與優惠會自動帶進貼文圖卡的促銷膠囊；賣場網址會自動接到
+            FB／Threads 的文案結尾。
+          </li>
+        </ul>
+
+        <h2 id="plan">4. 排這一週</h2>
+        <p>回到「本週」，按右上角「<strong>幫我排這一週</strong>」。</p>
+        <figure>
+          <img
+            src="assets/app-planweek.jpg"
+            alt="排這一週的視窗：勾選商品清單，下方有參考熱門話題的選項"
+            loading="lazy"
+          />
+        </figure>
+        <ul>
+          <li>勾選這週想推的商品。勾越多，七天的內容越不會重複。</li>
+          <li>
+            「<strong>參考這幾天的熱門話題</strong>」勾了會多查一步最近大家在聊什麼，把時事融進這週的方向；不勾就只用你的商品資料生成。
+          </li>
+          <li>
+            按「排這一週」之後，AI 會照七個角度排滿七天，再一天一天把文案、商品圖與圖卡生出來。
+          </li>
+        </ul>
+        <p class="small">
+          整週生成需要一點時間，過程中右上角會顯示「取消（生成第 N
+          天中…）」，按下去就停在下一天之前。已經生好的那幾天會留著，不會白花。
+        </p>
+        <figure>
+          <img src="assets/app-generating.jpg" alt="整週生成中，右上角顯示取消按鈕" loading="lazy" />
+        </figure>
+
+        <h2 id="check">5. 一天一天看過、改過</h2>
+        <p>在週表上點某一天，右邊會打開那一天的抽屜。生成的東西全部在這裡改完，不用跳頁。</p>
+        <figure>
+          <img
+            src="assets/app-drawer.jpg"
+            alt="某一天的抽屜：上方是貼文圖卡，下方是三平台文案分頁與發布區"
+            loading="lazy"
+          />
+        </figure>
+        <ul>
+          <li><strong>最上面是貼文圖卡</strong>。一天生幾張卡，看「設定 → 每天美化張數」（預設 1 張）；生一張以上時，下面會有縮圖可以切換。</li>
+          <li>
+            <strong>「這一整天」那一排</strong>：「重新生成文案」只換文字、圖卡一個位元組都不動；「重新生成全部圖片」只重做圖、文案不動；「改提示詞」可以先告訴 AI
+            這天想講什麼、圖片想拍成什麼樣子，再按上面兩顆。
+          </li>
+          <li>
+            <strong>「目前這張卡」那一排</strong>：重新生成這張、刪這張、調整這張（打開排版工具，可以拖字、換版型）。
+          </li>
+          <li>
+            <strong>文案直接在框裡改</strong>。IG、FB、Threads 三個分頁各一份，點分頁切換，改完點別的地方就會自動存。
+          </li>
+        </ul>
+        <figure>
+          <img src="assets/app-drawer-ig.jpg" alt="抽屜裡切換到 IG 分頁的文案" loading="lazy" />
+          <figcaption>三個平台的口氣不一樣，是分開生成的三份，不是同一篇貼三次。</figcaption>
+        </figure>
+
+        <div class="callout">
+          <p style="margin-bottom: 0">
+            <strong>「圖片」那一列</strong>在文案上方，隨時可以換這個商品的美化風格，以及要不要先去背。改了之後<strong>下一次生成</strong>才會用到，不會自動重做已經生好的圖。
+          </p>
+        </div>
+
+        <h2 id="publish">6. 發出去</h2>
+        <p>預設走複製貼上，一個字都不用設定就能用到底。</p>
+        <ol>
+          <li>在抽屜下方按「<strong>複製文字</strong>」，文案就在剪貼簿裡了。</li>
+          <li>按「<strong>下載到電腦</strong>」把圖卡存成檔案。</li>
+          <li>按「<strong>開啟 Facebook／Instagram／Threads</strong>」到平台的發文框，貼上、選圖、發布。</li>
+          <li>回到軟體按「<strong>✓ 發好了，記成已發布</strong>」，那一天就會變成綠色的「已發布」。</li>
+        </ol>
+        <p class="small">
+          按錯了可以再按一次取消記號。這個記號只是給你自己看的進度，不會去平台上做任何事。
+        </p>
+        <p>
+          接了 Meta 的人，抽屜最上面會多一顆「<strong>一鍵發布這一篇</strong>」，發成功之後會自動標記。手動那三顆按鈕仍然一直在——權杖過期或權限被撤時，那是你唯一的出口。
+        </p>
+
+        <h3>看之前發過什麼</h3>
+        <p>側欄的「<strong>已發布紀錄</strong>」一週一份，唯讀，只能看不能改也不能重發。</p>
+        <figure>
+          <img src="assets/app-history.jpg" alt="已發布紀錄頁：以週為單位摺疊的清單" loading="lazy" />
+        </figure>
+
+        <h2 id="advanced">7. 進階設定（不設也能正常用）</h2>
+        <p>都在左下角的「設定」裡。分成常用、進階、其他三組。</p>
+        <figure>
+          <img src="assets/app-settings.jpg" alt="設定視窗：左欄分成常用、進階、其他三組" loading="lazy" />
+        </figure>
+        <ul>
+          <li><strong>貼文結尾</strong>（常用）：每個平台的固定結尾設定一次，之後每篇自動接上。</li>
+          <li><strong>圖片風格</strong>（常用）：全機預設風格。單一商品可以在抽屜的「圖片」那一列另外指定。</li>
+          <li><strong>圖卡浮水印</strong>：上傳店家 logo，之後生成的圖卡會自動蓋上。</li>
+          <li>
+            <strong>讓軟體自己發文</strong>：綁定 Meta。要自己在 Meta 建一個應用程式，大約 20
+            分鐘，軟體裡有精靈一步步帶。<strong>不綁也完全不影響使用</strong>。
+          </li>
+          <li>
+            <strong>短網址與點擊統計</strong>：填 PicSee token 之後，貼文結尾的賣場連結會自動轉短網址，商品卡上就看得到有多少人點進去。
+          </li>
+          <li><strong>授權與版本</strong>：看目前的試用狀態、剩餘用量、檢查更新。</li>
+        </ul>
+
+        <h2 id="trouble">8. 卡住的話</h2>
+        <ul>
+          <li>
+            <strong>安裝時跳藍色警告</strong>——正常，見<a href="#install">第 1 步</a>。
+          </li>
+          <li>
+            <strong>圖卡一直生不出來，文案卻沒問題</strong>——多半是這天的圖片用量已經用完（試用是 10
+            張）。到「設定 → 授權與版本」看剩幾張；真的不夠用，私訊跟我們說一聲。
+          </li>
+          <li>
+            <strong>文案讀起來很怪</strong>——用抽屜裡的「改提示詞」告訴 AI
+            這天想講什麼，再按「重新生成文案」。或直接在文字框裡改，改完就是你的版本。
+          </li>
+          <li>
+            <strong>其他任何狀況</strong>——私訊粉專，附上畫面截圖。工作日 48 小時內回覆。
+          </li>
+        </ul>
+
+        <div class="btn-row" style="margin-top: 40px">
+          <a class="btn" href="https://m.me/weekedit.tw">私訊粉專問問題</a>
+          <a class="btn ghost" href="index.html">回產品頁</a>
+        </div>
+      </div>`;l.createRoot(document.getElementById("root")).render(n.jsx(t.StrictMode,{children:n.jsx(s,{html:r,current:"guide.html"})}));
