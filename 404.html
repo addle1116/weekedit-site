@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>找不到這一頁 — 週編</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/assets/icon.png" />
+    <!-- Meta 像素（資料集 2123016445281430）：衡量廣告成效用。
+         ❗它會寫 Cookie 並把瀏覽行為送給 Meta，跟無 Cookie 的 GoatCounter 不同——
+         terms.html 第 9 條「本網站」那段有揭露，改這裡要同步改那裡。 -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        }
+        if (!f._fbq) f._fbq = n
+        n.push = n
+        n.loaded = !0
+        n.version = '2.0'
+        n.queue = []
+        t = b.createElement(e)
+        t.async = !0
+        t.src = v
+        s = b.getElementsByTagName(e)[0]
+        s.parentNode.insertBefore(t, s)
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+      // 兩顆 pixel 是刻意的：281430「官網」建在企業管理平台「施昶安」底下（網域驗證也在那），
+      // 214469「週編官網」則是舊廣告帳號（有扣款紀錄那個）唯一拿得到的資料集。兩顆都 init，
+      // 後面的 track 會同時送到兩邊，所以廣告不管用哪個帳號投都收得到轉換。
+      fbq('init', '2123016445281430')
+      fbq('init', '1583026953214469')
+      fbq('track', 'PageView')
+    </script>
+    
+    <!-- 這裡本來有一段事件委派：只要點到 `data-goatcounter-click="dl-…"` 的下載鈕，
+         就對 Meta 送一顆 `Lead`。**2026-09-08 店主裁定整段拿掉。**
+
+         現在 Meta 的 `Lead` 唯一的來源是登入完成——`content_name:'web-login'`，
+         由 `site-next/src/components/LoginGate.tsx` 送出。理由：「留 email 登入」
+         比「隨手點一下下載」強得多，混在同一顆 `Lead` 裡會讓 Meta 拿弱訊號去找人
+         （跟 2026-09-02 店主裁定拿掉手機那半邊是同一種問題）。
+
+         ❗**下載鈕本身一個字都沒動**：`data-goatcounter-click="dl-…"` 屬性全部保留，
+         GoatCounter 的 `count.js` 自己會綁上去，「有幾個人點下載鈕」這個數字我們
+         自己照樣看得到——拿掉的只是「對 Meta 說那句話」。
+
+         ❗**廣告後台的 `Lead` 數字會從這批上線那天起斷層，不能跟之前的直接比**：
+         之前的 `Lead` ＝電腦版點下載鈕，之後的 `Lead` ＝留 email 登入。看成效數字
+         忽然變少不代表投放變差，是統計口徑換了，別誤判。
+
+         ❗舊版這段註解提過手機那半邊完成「留 email 寄安裝連結」後，會自己送一顆
+         對應的 `Lead`（帶另一個 content_name）——那條路已經隨計畫 5a Task 3 整條
+         拿掉，這顆事件不存在了。但手機那半邊沒有出現過「`Lead` 掛零」的空窗：
+         官網從 Task 3 到這次修改之間一次都沒有部署過，兩個改動是同一天一起上線
+         的——手機那半邊是直接從那顆事件換成登入完成送出的 `Lead`
+         （`content_name:'web-login'`），中間沒有斷過。 -->
+    <script type="module" crossorigin src="/assets/404-CtvwVb6D.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/app-xWwDumPB.js">
+    <link rel="modulepreload" crossorigin href="/assets/DocPage-CGeGwlYZ.js">
+    <link rel="stylesheet" crossorigin href="/assets/app-BBT4YkCs.css">
+  </head>
+  <body>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=2123016445281430&ev=PageView&noscript=1"
+        alt=""
+    /></noscript>
+    <div id="root"></div>
+    <script data-goatcounter="https://weekedit.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  </body>
+</html>
